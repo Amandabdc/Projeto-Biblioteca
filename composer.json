@@ -1,0 +1,16 @@
+{
+    "name": "book/biblioteca",
+    "description": "meu primeiro projeto em php poo",
+    "autoload": {
+        "psr-4": {
+            "Book\\Biblioteca\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Amanda Brito",
+            "email": "amandabrito.27@hotmail.com"
+        }
+    ],
+    "require": {}
+}
