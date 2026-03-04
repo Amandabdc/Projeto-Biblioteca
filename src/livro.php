@@ -7,7 +7,7 @@ class Livro {
 //Propriedades Privadas
     private string $titulo;
     private string $autor;
-    private bool $disponivel = false;
+    private bool $disponivel = true;
 
 //Construtor da classe
     public function __construct($titulo, $autor) {
@@ -24,7 +24,7 @@ class Livro {
         $this->disponivel = true;
     }
 
-    public function estaDispoonivel(): bool{
+    public function estaDisponivel(): bool{
         return $this->disponivel;
     }
 
