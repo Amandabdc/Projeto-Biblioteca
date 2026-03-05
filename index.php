@@ -13,7 +13,9 @@
 
     use Book\Biblioteca\Livro;
     use Book\Biblioteca\Estante;
-    use Book\Biblioteca\Usuario;
+    use Book\Biblioteca\Aluno;
+    use Book\Biblioteca\Professor;
+    use Book\Biblioteca\Visitante;
 
     echo 'Sistema de Biblioteca ! <br>';
 
@@ -36,7 +38,7 @@
 
         echo '<br>';
 
-        print_r($estante->listarLivrosDisponiveis());
+        print_r($estante);
 
         echo '<br>';
 
@@ -46,19 +48,19 @@
 
         echo '<br>';
 
-        $professor = new Usuario('Lucia', 'professor');
+        $professor = new Professor('Lucia', 'professor');
         $professor->adicionarLivroEmprestado($livro1);
 
 
-        print_r($professor->listarLivrosEmprestados());
+        print_r($professor);
 
         echo '<br>';
 
-        $aluno = new Usuario('Joao', 'aluno');
+        $aluno = new Aluno('Joao', 'aluno');
         $aluno->adicionarLivroEmprestado($livro2);
         $aluno->podePegarEmprestado();
 
-        print_r($aluno->listarLivrosEmprestados());
+        print_r($aluno);
 
     ?>
     </pre>
