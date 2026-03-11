@@ -16,11 +16,13 @@
     use Book\Biblioteca\Aluno;
     use Book\Biblioteca\Professor;
     use Book\Biblioteca\Visitante;
+    use Book\Biblioteca\Bibliotecario;
 
     echo 'Sistema de Biblioteca ! <br>';
 
         $livro1 = new Livro('Dom Quixote', 'Miguel de Cervantes');
         $livro2 = new Livro('Harry Potter - a Pedra Filosofal', 'J.K. Rowling');
+        $livro3 = new Livro('Crepusculo', 'Stephenie Meyer');
 
         $livro1->estaDisponivel();
         $livro2->estaDisponivel();
@@ -56,11 +58,19 @@
 
         echo '<br>';
 
-        $aluno = new Aluno('Joao', 'aluno');
-        $aluno->adicionarLivroEmprestado($livro2);
-        $aluno->podePegarEmprestado();
+        //$aluno = new Aluno('Joao', 'aluno');
+        //$aluno->adicionarLivroEmprestado($livro2);
+        //$aluno->podePegarEmprestado();
 
-        print_r($aluno);
+        //print_r($aluno);
+
+        $bibliotecario = new Bibliotecario();
+        $bibliotecario->emprestarLivro($professor, $livro1, $estante);
+        $bibliotecario->emprestarLivro($aluno, $livro2, $estante);
+        
+        $bibliotecario->devolverLivro($professor, $livro1, $estante);
+
+        print_r($bibliotecario);
 
     ?>
     </pre>
