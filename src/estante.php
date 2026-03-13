@@ -12,6 +12,10 @@ class Estante{
         $this->livros = array_filter($this->livros, fn($livroAtual) => $livroAtual !== $livro);
     }
 
+    public function verificarLivro(Livro $livro): bool{
+        return in_array($livro, $this->livros);
+    }
+
     public function buscarLivrosPorTitulo(string $titulo): ?Livro{
         foreach($this->livros as $livro){
             if (strpos(strtolower($livro->getTitulo()), strtolower($titulo))){

@@ -37,6 +37,7 @@
         $estante = new Estante();
         $estante->adicionarLivro($livro1);
         $estante->adicionarLivro($livro2);
+        $estante->adicionarLivro($livro3);
 
         echo '<br>';
 
@@ -51,26 +52,22 @@
         echo '<br>';
 
         $professor = new Professor('Lucia', 'professor');
-        $professor->adicionarLivroEmprestado($livro1);
-
 
         print_r($professor);
 
         echo '<br>';
 
-        //$aluno = new Aluno('Joao', 'aluno');
-        //$aluno->adicionarLivroEmprestado($livro2);
-        //$aluno->podePegarEmprestado();
+        $aluno = new Aluno('Joao', 'aluno');
+        $aluno->adicionarLivroEmprestado($livro2);
+        $aluno->podePegarEmprestado();
 
-        //print_r($aluno);
+        print_r($aluno);
 
-        $bibliotecario = new Bibliotecario();
-        $bibliotecario->emprestarLivro($professor, $livro1, $estante);
-        $bibliotecario->emprestarLivro($aluno, $livro2, $estante);
-        
-        $bibliotecario->devolverLivro($professor, $livro1, $estante);
+        echo '<br>';
 
-        print_r($bibliotecario);
+        Bibliotecario::emprestarLivro($professor, $livro1, $estante);
+        Bibliotecario::emprestarLivro($aluno, $livro2, $estante);
+        Bibliotecario::devolverLivro($professor, $livro3, $estante);
 
     ?>
     </pre>

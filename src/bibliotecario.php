@@ -3,7 +3,7 @@
 namespace Book\Biblioteca;
 
 class Bibliotecario {
-    public function emprestarLivro(Usuario $usuario, Livro $livro, Estante $estante){
+    public static function emprestarLivro(Usuario $usuario, Livro $livro, Estante $estante){
         //usuario pode pegar emprestador
         if($livro->estaDisponivel()){
             return false;
@@ -13,7 +13,7 @@ class Bibliotecario {
             return false;
         }
 
-        if($estante->buscarLivrosPorTitulo($livro->getTitulo())){
+        if(!$estante->verificarLivro($livro)){
             return false;
         }
 
@@ -24,12 +24,16 @@ class Bibliotecario {
         return true;
     }
 
-    public function devolverLivro(Usuario $usuario, Livro $livro, Estante $estante){
+    public static function devolverLivro(Usuario $usuario, Livro $livro, Estante $estante){
         if($livro->estaDisponivel()){
             return false;
         }
 
         if($estante->buscarLivrosPorTitulo($livro->getTitulo())){
+            return false;
+        }
+
+        if(!in_array($livro, $usuario->listarLivrosEmprestados())){
             return false;
         }
 
